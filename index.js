@@ -48,7 +48,28 @@ function displayIngredientList(data) {
 }
 
 userSubmitsIngredientSuggestion(ingredientSuggestionArray); {
-	console.log(ingredientSuggestionArray);
+	$('.js-suggestion-list input').on('change', function() {
+		event.preventDefault();
+    	let answerIndex = $(".js-suggestion-list input:radio[name='ingredient-suggestion']").index($(".js-suggestion-list input:radio[name='ingredient-suggestion']").filter(':checked'));
+    	processIngredientList(ingredientSuggestions[answerIndex]);
+    	$('.js-suggested-ingredient').remove();
+    	$('.js-suggestion-list').prop('hidden', true);
+  	});
+}
+
+
+function processIngredientList(ingredient) {
+	console.log(ingredient);
+}
+
+function showError(err) {
+  	if(err === 'ingredient'){
+    	$('no-ingredient').prop('hidden', true);
+  	}
+  	if (err==='recipe') {
+    	$('no-recipe').prop('hidden', true);
+  	}
+	return;
 }
 
 $(userSubmitsIngredients);
