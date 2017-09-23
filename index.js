@@ -107,8 +107,41 @@ function getRecipeData(callback) {
 }	
 
 function displayRecipeList(data) {
-	console.log(data);
+	let lastItem = false;
+	let length = data.length - 1;
+	data.map(function(item, index){ 
+	  	if (index === length) {
+	    	lastItem = true;
+	  	}
+	  	getRecipeSourceURL(item.id, item.title, item.image, lastItem, renderRecipeURL);
+  	});
+  	$('.js-recipe-list').prop('hidden', false);
 }
+
+function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, lastItem, callback) {
+  	const settings = {
+    	url: ' https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + recipeId + '/information',
+    	headers: {
+        	'X-Mashape-Key': recipe_search_KEY,
+        	'Accept':'application/json'
+      	},
+    	method: 'GET',
+    	dataType: 'json',
+    	data: {
+			id: recipeId,
+			includeNutrition: false
+		},
+    	success: function(response) {
+      		callback(recipeId, recipeTitle, recipeImage, response);
+    	}
+  	};
+	$.ajax(settings).fail(showError());
+}
+
+function renderRecipeURL(recipeId, recipeTitle, recipeImage, resp) {
+  	return;
+}
+
 
 function showError(err) {
   	if(err === 'ingredient'){
