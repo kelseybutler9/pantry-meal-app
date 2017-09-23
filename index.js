@@ -59,7 +59,19 @@ userSubmitsIngredientSuggestion(ingredientSuggestionArray); {
 
 
 function processIngredientList(ingredient) {
-	console.log(ingredient);
+	if (ingredientOptions === '') {
+		ingredientOptions += `${ingredient}`;
+	  	$('.js-pantry-list').prop('hidden', false);
+	}
+	else {
+		ingredientOptions += ',' + `${ingredient}`;
+	}
+	ingredientArray.push(ingredient);
+	let ingredientListString = '';
+	ingredientArray.map(function(item){
+    	ingredientListString += '<p>' + item + '</p>';
+  	});
+	$('.js-pantry-items').html(ingredientListString);
 }
 
 function showError(err) {
