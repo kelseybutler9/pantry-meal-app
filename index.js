@@ -2,6 +2,9 @@ const recipe_search_URL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashap
 const ingredient_search_URL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete';
 const recipe_search_KEY = '8P5jfI6bzJmshGoHP4ULJXria9Lmp17aDJYjsnaBmFSetYNBoE'; 
 const recipe_search_APIID = '340adb33'; 
+let ingredientOptions = '';
+let ingredientArray = [];
+let recipeListString = '';
 
 function userSubmitsIngredients() {
 	$('.js-search-form').on('submit', function(event) {
@@ -74,6 +77,39 @@ function processIngredientList(ingredient) {
 	$('.js-pantry-items').html(ingredientListString);
 }
 
+function userSubmitsRecipe() {
+	$('.js-pantry-list').on('submit', function(event) {
+		event.preventDefault();
+		getRecipeData(displayRecipeList);
+	});
+}
+
+function getRecipeData(callback) {
+	const settings = {
+    	url: recipe_search_URL,
+    	headers: {
+        	'X-Mashape-Key': recipe_search_KEY,
+        	'Accept':'application/json'
+      	},
+    	method: 'GET',
+    	dataType: 'json',
+    	data: {
+			fillIngredients: false,
+			ingredients: ingredientOptions,
+			limitLicense: false,
+			number: 2,
+			ranking: 2
+		},
+    success: callback
+};
+
+	$.ajax(settings).fail(showError());
+}	
+
+function displayRecipeList(data) {
+	console.log(data);
+}
+
 function showError(err) {
   	if(err === 'ingredient'){
     	$('no-ingredient').prop('hidden', true);
@@ -85,3 +121,4 @@ function showError(err) {
 }
 
 $(userSubmitsIngredients);
+$(userSubmitsRecipe);
