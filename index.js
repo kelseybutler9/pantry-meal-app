@@ -36,9 +36,19 @@ function getIngredientData (ingredient, callback) {
 }	
 
 function displayIngredientList(data) {
-	console.log(data);
+	let ingredientSuggestionString = '';
+	let ingredientSuggestionArray = [];
+	data.map(function(item, index) {
+    	ingredientSuggestionString += "<label class=js-suggested-ingredient><input id='"+index+"'type='radio' name='ingredient-suggestion' required value="+ item.name + "><span>"+ item.name + "</span></label>";
+    	ingredientSuggestionArray.push(item.name);
+  	});
+  	$('.js-suggested-ingredients').html(ingredientSuggestionString);
+  	userSubmitsIngredientSuggestion(ingredientSuggestionArray);
+	return;
 }
 
-
+userSubmitsIngredientSuggestion(ingredientSuggestionArray); {
+	console.log(ingredientSuggestionArray);
+}
 
 $(userSubmitsIngredients);
