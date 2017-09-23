@@ -139,9 +139,22 @@ function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, lastItem, callba
 }
 
 function renderRecipeURL(recipeId, recipeTitle, recipeImage, resp) {
-  	return;
+  	let recipeURL = resp[Object.keys(resp)[14]];
+  	let recipeString ='<div class="js-recipe"><h2>' + recipeTitle +'</h2><a href="'+ recipeURL + '"><img src=' + recipeImage + ' alt=' + recipeTitle + '></a></div>';
+   	$('.js-recipes').append(recipeString);
 }
 
+function newIngredientList() {
+	$('js-recipe-list').on('submit', function(event) {
+		event.preventDefault();
+		ingredientOptions = '';
+    	ingredientArray = [];
+    	recipeListString = '';
+		$('.js-recipe-list').prop('hidden', true);
+		$('.js-pantry-list').prop('hidden', true);
+		console.log(recipeListString);
+	});
+}
 
 function showError(err) {
   	if(err === 'ingredient'){
@@ -153,5 +166,14 @@ function showError(err) {
 	return;
 }
 
+function closeErrorMessage() {
+	$('js-error').on('submit', function(event) {
+		event.preventDefault();
+		$('.js-error').prop('hidden', true);
+	});
+}
+
 $(userSubmitsIngredients);
 $(userSubmitsRecipe);
+$(closeErrorMessage);
+$(newIngredientList);
