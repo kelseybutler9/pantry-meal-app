@@ -7,20 +7,21 @@
         <link href="main.css" rel="stylesheet" type="text/css" />
          <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
            <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <header role="banner">
+          <h1>From Your Pantry, to Your Plate</h1>
+        </header>
   </head>
   <body>
+    <div class="background-image"></div>
     <main role="main">
-      <div class="background-image"></div>
-      <header role="banner">
-        <h1>From Your Pantry, to Your Plate</h1>
-      </header>
       <form action="#" class="js-search-form">
         <div class="input-field">
           <label>What ingredients are in your pantry?
             <input type="text" name="ingredient-search" class="js-query" placeholder="search ingredients" required>
           </label>
+          <button type="submit">Submit New Ingredient</button>
         </div>
-        <button type="submit" hidden>Submit New Ingredient</button>
+        
       </form>
 
       <form action="#" class= "js-pantry-list" aria-live="assertive" hidden>

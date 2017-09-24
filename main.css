@@ -1,8 +1,12 @@
 body {
-  background: url('http://i.huffpost.com/gen/1905866/images/o-ORGANIC-FOOD-STUDY-facebook.jpg') no-repeat;
+  /*background: url('http://i.huffpost.com/gen/1905866/images/o-ORGANIC-FOOD-STUDY-facebook.jpg') no-repeat;*/
+  
+    background: url('http://www.uncleralstons.com/wp-content/uploads/2014/04/food_dark-4-2048x1229.jpg') no-repeat;
+
   background-size: cover;
   box-sizing: border-box;
   font-family: "Times New Roman", Times, serif;
+  color: white;
 }
 
 
@@ -12,15 +16,19 @@ header {
   font-size: 1.75em;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 80%;
   padding: 0;
   margin: 0;
   text-align: center;
 }
 
 .js-search-form {
-	margin-top: 150px;
-	margin-left: 675px;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 50%;
+  height: 300px;
+  border: solid white 2px;
+  border-radius: 2px;
 }
 
 .js-pantry-list, .js-recipe-list{
@@ -39,6 +47,10 @@ h2, label{
 
 .input-field {
 	padding: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 input, .js-query {
@@ -51,21 +63,29 @@ input, .js-query {
 	padding-right: 10px;
 	font-size: 1em;
 	margin-bottom: 10px;
-  	margin-top: 10px;
-  	font-color: black;
+  margin-top: 10px;
 }
 
-
 button {
-  	font-size: 1.25em;
-  	padding: 5px;
-  	font-weight: bold;
-  	display: block;
-  	margin-bottom: 10px;
-  	margin-top: 10px;
-  	border: solid black 2px;
-  	border-radius: 5px;
-  	background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 5px;
+  border: solid black 2px;
+  -webkit-box-shadow: 0px 3px 3px #666666;
+  -moz-box-shadow: 0px 3px 3px #666666;
+  box-shadow: 0px 3px 3px #666666;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 1.5em;
+}
+
+button:hover {
+  background: #3a3e40;
+  text-decoration: none;
+  color: white;
 }
 
 .js-suggested-ingredient {
@@ -96,6 +116,7 @@ h3 {
     font-size: 1.5em;
   	margin-bottom: 5px;
   	text-align: center;
+}
 
 .js-pantry-items p {
 	font-size: 1.25em;
