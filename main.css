@@ -1,0 +1,50 @@
+body {
+  background: url('http://i.huffpost.com/gen/1905866/images/o-ORGANIC-FOOD-STUDY-facebook.jpg') no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.js-search-form {
+  margin-top: 150px;
+  margin-left: 1000px;
+}
+
+.js-pantry-list {
+  border: solid black;
+}
+
+h2, label {
+  font-size: 1.75em;
+  font-weight: bold;
+  display: block;
+}
+
+.input-field {
+	padding: 15 px;
+	border: solid black 1px;
+	margin-left: 100px;
+}
+
+button, .js-query {
+  font-size: 1.25em;
+  padding: 5px;
+  font-weight: none;
+  display: block;
+}
+
+button {
+	margin: 15px;
+}

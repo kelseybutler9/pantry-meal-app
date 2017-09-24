@@ -15,10 +15,12 @@
         <h1>From your pantry, to your plate</h1>
       </header>
       <form action="#" class="js-search-form">
-        <label>What ingredients are in your pantry?
-          <input type="text" name="ingredient-search" class="js-query" placeholder="search ingredients here" required>
-        </label>
-        <button type="submit">Submit New Ingredient</button>
+        <div class="input-field">
+          <label>What ingredients are in your pantry?
+            <input type="text" name="ingredient-search" class="js-query" placeholder="search ingredients here" required>
+          </label>
+        </div>
+        <button type="submit" hidden>Submit New Ingredient</button>
       </form>
 
       <form action="#" class= "js-pantry-list" aria-live="assertive" hidden>
@@ -48,7 +50,7 @@
         </div>
         <button type="submit">Submit New Ingredient List</button>
       </form>
-      
+
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
