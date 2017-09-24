@@ -50,11 +50,11 @@ function displayIngredientList(data) {
 	return;
 }
 
-userSubmitsIngredientSuggestion(ingredientSuggestionArray); {
+function userSubmitsIngredientSuggestion(ingredientSuggestionArray) {
 	$('.js-suggestion-list input').on('change', function() {
 		event.preventDefault();
     	let answerIndex = $(".js-suggestion-list input:radio[name='ingredient-suggestion']").index($(".js-suggestion-list input:radio[name='ingredient-suggestion']").filter(':checked'));
-    	processIngredientList(ingredientSuggestions[answerIndex]);
+    	processIngredientList(ingredientSuggestionArray[answerIndex]);
     	$('.js-suggested-ingredient').remove();
     	$('.js-suggestion-list').prop('hidden', true);
   	});
@@ -107,18 +107,18 @@ function getRecipeData(callback) {
 }	
 
 function displayRecipeList(data) {
-	let lastItem = false;
-	let length = data.length - 1;
+	// let lastItem = false;
+	// let length = data.length - 1;
 	data.map(function(item, index){ 
-	  	if (index === length) {
-	    	lastItem = true;
-	  	}
-	  	getRecipeSourceURL(item.id, item.title, item.image, lastItem, renderRecipeURL);
+	  	// if (index === length) {
+	   //  	lastItem = true;
+	  	// }
+	  	getRecipeSourceURL(item.id, item.title, item.image, renderRecipeURL);
   	});
   	$('.js-recipe-list').prop('hidden', false);
 }
 
-function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, lastItem, callback) {
+function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, callback) {
   	const settings = {
     	url: ' https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + recipeId + '/information',
     	headers: {
@@ -139,7 +139,9 @@ function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, lastItem, callba
 }
 
 function renderRecipeURL(recipeId, recipeTitle, recipeImage, resp) {
+	console.log(recipeTitle);
   	let recipeURL = resp[Object.keys(resp)[14]];
+  	console.log(recipeURL);
   	let recipeString ='<div class="js-recipe"><h2>' + recipeTitle +'</h2><a href="'+ recipeURL + '"><img src=' + recipeImage + ' alt=' + recipeTitle + '></a></div>';
    	$('.js-recipes').append(recipeString);
 }
@@ -168,6 +170,7 @@ function showError(err) {
 
 function closeErrorMessage() {
 	$('js-error').on('submit', function(event) {
+		console.log('error');
 		event.preventDefault();
 		$('.js-error').prop('hidden', true);
 	});
