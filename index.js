@@ -142,7 +142,7 @@ function renderRecipeURL(recipeId, recipeTitle, recipeImage, resp) {
 	console.log(recipeTitle);
   	let recipeURL = resp[Object.keys(resp)[14]];
   	console.log(recipeURL);
-  	let recipeString ='<div class="js-recipe"><h2>' + recipeTitle +'</h2><a href="'+ recipeURL + '"><img src=' + recipeImage + ' alt=' + recipeTitle + '></a></div>';
+  	let recipeString =`<div class="js-recipe"><h2>${recipeTitle}</h2><a href="${recipeURL}"><img src="${recipeImage}" alt=${recipeTitle}></a></div>`;
    	$('.js-recipes').append(recipeString);
 }
 
