@@ -2,6 +2,7 @@ body {
   background: url('http://i.huffpost.com/gen/1905866/images/o-ORGANIC-FOOD-STUDY-facebook.jpg') no-repeat;
   background-size: cover;
   box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
 }
 
 
@@ -25,6 +26,7 @@ header {
 .js-pantry-list, .js-suggestion-list{
   	margin-top: 15px;
   	margin-left: 675px;
+  	padding: 10px;
 }
 
 h2, label, h3 {
@@ -32,6 +34,7 @@ h2, label, h3 {
   	font-weight: bold;
   	margin-bottom: 5px;
   	display: block;
+  	text-decoration: underline;
 }
 
 .input-field {
@@ -56,18 +59,22 @@ input, .js-query {
 button {
   	font-size: 1.25em;
   	padding: 5px;
-  	font-weight: none;
+  	font-weight: bold;
   	display: block;
   	margin-bottom: 10px;
   	margin-top: 10px;
-}
-
-.js-pantry-list {
-  border: solid black;
+  	border: solid black 1px;
+  	border-radius: 5px;
+  	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .js-suggested-ingredient {
 	display: block;
-	padding: 5px;
-	font-size: 1em;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+
+.js-pantry-items p {
+	font-size: 1.25em;
+	font-weight: bold;
 }
