@@ -18,33 +18,51 @@ header {
 }
 
 .js-search-form {
-  margin-top: 150px;
-  margin-left: 1000px;
+	margin-top: 150px;
+	margin-left: 675px;
+}
+
+.js-pantry-list, .js-suggestion-list{
+  	margin-top: 15px;
+  	margin-left: 675px;
+}
+
+h2, label, h3 {
+  	font-size: 1.75em;
+  	font-weight: bold;
+  	margin-bottom: 5px;
+  	display: block;
+}
+
+.input-field {
+	padding: 10px;
+}
+
+input, .js-query {
+	background-color: rgba(0, 0, 0, 0.1);
+	border: solid black 1px;
+	border-radius: 5px;
+	font-weight: normal;
+	font-style: italic;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 1em;
+	margin-bottom: 10px;
+  	margin-top: 10px;
+  	font-color: black;
+}
+
+
+
+button {
+  	font-size: 1.25em;
+  	padding: 5px;
+  	font-weight: none;
+  	display: block;
+  	margin-bottom: 10px;
+  	margin-top: 10px;
 }
 
 .js-pantry-list {
   border: solid black;
-}
-
-h2, label {
-  font-size: 1.75em;
-  font-weight: bold;
-  display: block;
-}
-
-.input-field {
-	padding: 15 px;
-	border: solid black 1px;
-	margin-left: 100px;
-}
-
-button, .js-query {
-  font-size: 1.25em;
-  padding: 5px;
-  font-weight: none;
-  display: block;
-}
-
-button {
-	margin: 15px;
 }
