@@ -18,12 +18,23 @@ header {
 }
 
 
-header h2{
+.description, label {
   color: white;
   font-size: 1em;
   margin: 0;
   text-align: center;
   text-decoration: none;
+  margin-bottom: 5px;
+}
+
+label {
+  font-size: 1.5em;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
 }
 
 
@@ -39,7 +50,7 @@ header h2{
   border: solid white 1px;
 }
 
-h2, label{
+h2 {
   	font-size: 2em;
   	margin-bottom: 5px;
   	display: block;
@@ -49,21 +60,22 @@ h2, label{
 .input-field {
 	padding: 10px;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 100%;
   text-align: center;
+  margin-top: 10px;
 }
 
 .js-query {
 	background-color: rgba(0, 0, 0, 0.1);
 	border: solid gray 2px;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	font-weight: lighter;
 	font-style: italic;
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 1em;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
   margin-top: 10px;
   color: white;
   text-align: center;
@@ -82,8 +94,15 @@ button {
   padding: 5px;
   text-decoration: none;
   margin: 10px;
-  font-size: 1.5em;
+  font-size: 1em;
   color: white;
+}
+
+.input-field button {
+  display: block;
+  margin: auto;
+  font-size: 1em;
+  text-align: center;
 }
 
 button:hover {
@@ -117,6 +136,10 @@ button:hover {
   right: 0;
 }
 
+.js-recipe-list {
+  height: 80%;
+}
+
 h3 {
 	color: white;
 	margin: auto;
@@ -129,4 +152,9 @@ h3 {
 .js-pantry-items p {
 	font-size: 1.25em;
 	font-weight: bold;
+}
+
+.js-recipe img {
+    max-width: 100%;
+    max-height: 100%;
 }
