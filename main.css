@@ -17,6 +17,16 @@ header {
   text-align: center;
 }
 
+
+header h2{
+  color: white;
+  font-size: 1em;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+
 .js-search-form, .js-pantry-list, .js-recipe-list {
   margin: auto;
   margin-bottom: 20px;
@@ -41,7 +51,6 @@ h2, label{
   margin: auto;
   margin-bottom: 20px;
   width: 100%;
-  height: 300px;
   text-align: center;
 }
 
@@ -92,10 +101,11 @@ button:hover {
 	font-weight: none;
 }
 
-.js-suggestion-list {
+.js-suggestion-list, .js-recipe-list {
   position: fixed;
   width: 50%;
   margin: auto;
+  height: 200px;
   top: 150px;
   background-color: rgba(0, 0, 0, 0.9);
   border: solid black;
@@ -105,7 +115,6 @@ button:hover {
   color: white;
   left: 0;
   right: 0;
-
 }
 
 h3 {
