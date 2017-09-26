@@ -176,6 +176,8 @@ function closeErrorMessage() {
 		console.log('error');
 		event.preventDefault();
 		$('.js-error').prop('hidden', true);
+		$('no-recipe').prop('hidden', true);
+		$('no-ingredient').prop('hidden', true);
 	});
 }
 

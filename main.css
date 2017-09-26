@@ -121,7 +121,7 @@ button:hover {
   font-weight: none;
 }
 
-.js-suggestion-list {
+.js-suggestion-list, .js-error {
   position: fixed;
   width: 50%;
   margin: auto;
