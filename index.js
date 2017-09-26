@@ -113,6 +113,8 @@ function displayRecipeList(data) {
 	  	getRecipeSourceURL(item.id, item.title, item.image, renderRecipeURL);
   	});
   	$('.js-recipe-list').prop('hidden', false);
+  	$('.js-pantry-list').prop('hidden', true);
+  	$('.js-search-form').prop('hidden', true);
 }
 
 function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, callback) {
