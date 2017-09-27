@@ -6,15 +6,15 @@ let ingredientOptions = '';
 let ingredientArray = [];
 let recipeListString = '';
 
-function userSubmitsIngredients() {
-	$('.js-search-form').on('submit', function(event) {
-		event.preventDefault();
-		let ingredient = $('input[name=ingredient-search]').val();
-		getIngredientData(ingredient, displayIngredientList);
-		$('input[name=ingredient-search]').val('');
-		$('.js-suggestion-list').prop('hidden', false);
-	});
-}
+
+$('.js-search-form').on('submit', function(event) {
+	event.preventDefault();
+	let ingredient = $('input[name=ingredient-search]').val();
+	getIngredientData(ingredient, displayIngredientList);
+	$('input[name=ingredient-search]').val('');
+	$('.js-suggestion-list').prop('hidden', false);
+});
+
 
 function getIngredientData (ingredient, callback) {
 	const settings = {
@@ -78,15 +78,13 @@ function processIngredientList(ingredient) {
 	$('.js-pantry-items').html(ingredientListString);
 }
 
-function userSubmitsRecipe() {
-	$('.js-pantry-list').on('submit', function(event) {
-		event.preventDefault();
-		getRecipeData(displayRecipeList);
-	});
-}
+$('.js-pantry-list').on('submit', function(event) {
+	event.preventDefault();
+	getRecipeData(displayRecipeList);
+});
 
 function getRecipeData(callback) {
-// 	const settings = {
+	const settings = {
     	url: recipe_search_URL,
     	headers: {
         	'X-Mashape-Key': recipe_search_KEY,
@@ -105,7 +103,6 @@ function getRecipeData(callback) {
 };
 
 	$.ajax(settings).fail(showError());
-	// displayRecipeList([{id: 1, title: 'Recipe One', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUt6OuuuzP6rX82a66X8RrWoVbcfLOTSCmygJ9RgiwT-G0d20iw'},{id: 2, title: 'Recipe Two', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUt6OuuuzP6rX82a66X8RrWoVbcfLOTSCmygJ9RgiwT-G0d20iw'}]);
 }	
 
 function displayRecipeList(data) {
@@ -135,30 +132,27 @@ function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, callback) {
     	}
   	};
 	$.ajax(settings).fail(showError());
-	// renderRecipeURL(recipeId, recipeTitle, recipeImage, 'hi');
 }
 
 function renderRecipeURL(recipeId, recipeTitle, recipeImage, resp) {
 	console.log(recipeTitle);
   	let recipeURL = resp[Object.keys(resp)[14]];
   	console.log(recipeURL); 
- 	//let recipeURL = 'https://www.pillsbury.com/recipes/classic-chicken-pot-pie/1401d418-ac0b-4b50-ad09-c6f1243fb992';
   	let recipeString =`<div class="js-recipe"><h2>${recipeTitle}</h2><a href="${recipeURL}"><img src="${recipeImage}" alt=${recipeTitle}></a></div>`;
    	$('.js-recipes').append(recipeString);
    	
 }
 
-function newIngredientList() {
-	$('js-recipe-list').on('submit', function(event) {
-		event.preventDefault();
-		ingredientOptions = '';
-    	ingredientArray = [];
-    	recipeListString = '';
-		$('.js-recipe-list').prop('hidden', true);
-		$('.js-pantry-list').prop('hidden', true);
-		console.log(recipeListString);
-	});
-}
+
+$('js-recipe-list').on('submit', function(event) {
+	event.preventDefault();
+	ingredientOptions = '';
+    ingredientArray = [];
+    recipeListString = '';
+	$('.js-recipe-list').prop('hidden', true);
+	$('.js-pantry-list').prop('hidden', true);
+
+});
 
 function showError(err) {
   	if(err === 'ingredient'){
@@ -170,17 +164,10 @@ function showError(err) {
 	return;
 }
 
-function closeErrorMessage() {
-	$('js-error').on('submit', function(event) {
-		console.log('error');
-		event.preventDefault();
-		$('.js-error').prop('hidden', true);
-		$('no-recipe').prop('hidden', true);
-		$('no-ingredient').prop('hidden', true);
-	});
-}
-
-$(userSubmitsIngredients);
-$(userSubmitsRecipe);
-$(closeErrorMessage);
-$(newIngredientList);
+$('js-error').on('submit', function(event) {
+	console.log('error');
+	event.preventDefault();
+	$('.js-error').prop('hidden', true);
+	$('no-recipe').prop('hidden', true);
+	$('no-ingredient').prop('hidden', true);
+});
