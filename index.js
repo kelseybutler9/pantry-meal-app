@@ -29,7 +29,7 @@ function getIngredientData (ingredient, callback) {
     	data: {
 			intolerances: null,
 			metaInformation: false,
-			number: 2,
+			number: 10,
 			query: `${ingredient}`
 		},
     	success: callback
@@ -96,7 +96,7 @@ function getRecipeData(callback) {
 			fillIngredients: false,
 			ingredients: ingredientOptions,
 			limitLicense: false,
-			number: 2,
+			number: 10,
 			ranking: 2
 		},
     success: callback
