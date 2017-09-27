@@ -17,26 +17,26 @@ function userSubmitsIngredients() {
 }
 
 function getIngredientData (ingredient, callback) {
-	// const settings = {
- //    	url: ingredient_search_URL,
- //    	headers: {
- //        	'X-Mashape-Key': recipe_search_KEY,
- //        	'Content-Type':'application/x-www-form-urlencode',
- //        	'Accept':'application/json'
- //    	},
- //    	method: 'GET',
- //    	dataType: 'json',
- //    	data: {
-	// 		intolerances: null,
-	// 		metaInformation: false,
-	// 		number: 2,
-	// 		query: `${ingredient}`
-	// 	},
- //    	success: callback
- //    };
+	const settings = {
+    	url: ingredient_search_URL,
+    	headers: {
+        	'X-Mashape-Key': recipe_search_KEY,
+        	'Content-Type':'application/x-www-form-urlencode',
+        	'Accept':'application/json'
+    	},
+    	method: 'GET',
+    	dataType: 'json',
+    	data: {
+			intolerances: null,
+			metaInformation: false,
+			number: 2,
+			query: `${ingredient}`
+		},
+    	success: callback
+    };
 
-	// $.ajax(settings).fail(showError()); //commented out to be added in later
-	displayIngredientList([{name: 'flour'}, {name:'flour rice'}]);
+	$.ajax(settings).fail(showError()); 
+	// displayIngredientList([{name: 'flour'}, {name:'flour rice'}]);
 }	
 
 function displayIngredientList(data) {
@@ -87,25 +87,25 @@ function userSubmitsRecipe() {
 
 function getRecipeData(callback) {
 // 	const settings = {
-//     	url: recipe_search_URL,
-//     	headers: {
-//         	'X-Mashape-Key': recipe_search_KEY,
-//         	'Accept':'application/json'
-//       	},
-//     	method: 'GET',
-//     	dataType: 'json',
-//     	data: {
-// 			fillIngredients: false,
-// 			ingredients: ingredientOptions,
-// 			limitLicense: false,
-// 			number: 2,
-// 			ranking: 2
-// 		},
-//     success: callback
-// };
+    	url: recipe_search_URL,
+    	headers: {
+        	'X-Mashape-Key': recipe_search_KEY,
+        	'Accept':'application/json'
+      	},
+    	method: 'GET',
+    	dataType: 'json',
+    	data: {
+			fillIngredients: false,
+			ingredients: ingredientOptions,
+			limitLicense: false,
+			number: 2,
+			ranking: 2
+		},
+    success: callback
+};
 
-// 	$.ajax(settings).fail(showError()); //add back in later
-	displayRecipeList([{id: 1, title: 'Recipe One', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUt6OuuuzP6rX82a66X8RrWoVbcfLOTSCmygJ9RgiwT-G0d20iw'},{id: 2, title: 'Recipe Two', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUt6OuuuzP6rX82a66X8RrWoVbcfLOTSCmygJ9RgiwT-G0d20iw'}]);
+	$.ajax(settings).fail(showError());
+	// displayRecipeList([{id: 1, title: 'Recipe One', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUt6OuuuzP6rX82a66X8RrWoVbcfLOTSCmygJ9RgiwT-G0d20iw'},{id: 2, title: 'Recipe Two', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUt6OuuuzP6rX82a66X8RrWoVbcfLOTSCmygJ9RgiwT-G0d20iw'}]);
 }	
 
 function displayRecipeList(data) {
@@ -118,32 +118,31 @@ function displayRecipeList(data) {
 }
 
 function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, callback) {
- //  	const settings = {
- //    	url: ' https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + recipeId + '/information',
- //    	headers: {
- //        	'X-Mashape-Key': recipe_search_KEY,
- //        	'Accept':'application/json'
- //      	},
- //    	method: 'GET',
- //    	dataType: 'json',
- //    	data: {
-	// 		id: recipeId,
-	// 		includeNutrition: false
-	// 	},
- //    	success: function(response) {
- //      		callback(recipeId, recipeTitle, recipeImage, response);
- //    	}
- //  	};
-	// $.ajax(settings).fail(showError());
-	renderRecipeURL(recipeId, recipeTitle, recipeImage, 'hi');
+  	const settings = {
+    	url: ' https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + recipeId + '/information',
+    	headers: {
+        	'X-Mashape-Key': recipe_search_KEY,
+        	'Accept':'application/json'
+      	},
+    	method: 'GET',
+    	dataType: 'json',
+    	data: {
+			id: recipeId,
+			includeNutrition: false
+		},
+    	success: function(response) {
+      		callback(recipeId, recipeTitle, recipeImage, response);
+    	}
+  	};
+	$.ajax(settings).fail(showError());
+	// renderRecipeURL(recipeId, recipeTitle, recipeImage, 'hi');
 }
 
 function renderRecipeURL(recipeId, recipeTitle, recipeImage, resp) {
-	// console.log(recipeTitle);
- //  	let recipeURL = resp[Object.keys(resp)[14]];
- //  	console.log(recipeURL); add back in later
-
- 	let recipeURL = 'https://www.pillsbury.com/recipes/classic-chicken-pot-pie/1401d418-ac0b-4b50-ad09-c6f1243fb992';
+	console.log(recipeTitle);
+  	let recipeURL = resp[Object.keys(resp)[14]];
+  	console.log(recipeURL); 
+ 	//let recipeURL = 'https://www.pillsbury.com/recipes/classic-chicken-pot-pie/1401d418-ac0b-4b50-ad09-c6f1243fb992';
   	let recipeString =`<div class="js-recipe"><h2>${recipeTitle}</h2><a href="${recipeURL}"><img src="${recipeImage}" alt=${recipeTitle}></a></div>`;
    	$('.js-recipes').append(recipeString);
    	
