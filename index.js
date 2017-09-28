@@ -29,7 +29,7 @@ function getIngredientData (ingredient, callback) {
     	data: {
 			intolerances: null,
 			metaInformation: false,
-			number: 10,
+			number: 2,
 			query: `${ingredient}`
 		},
     	success: callback
@@ -106,7 +106,8 @@ function getRecipeData(callback) {
 }	
 
 function displayRecipeList(data) {
-	data.map(function(item, index){ 
+	console.log(data);
+  data.map(function(item, index){ 
 	  	getRecipeSourceURL(item.id, item.title, item.image, renderRecipeURL);
   	});
   	$('.js-recipe-list').prop('hidden', false);
