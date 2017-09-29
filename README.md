@@ -1,4 +1,11 @@
-Create an app where users enter a list of ingredients and receive a list of recipe's that include those ingredients.
+PANTRY MEAL APP
+The app that takes your pantry items and returns recipes with your ingredients.
+
+Description:
+An app where users enter a list of ingredients in their pantry, receive suggested ingredient based on their search and receive a list of recipe's that include those ingredients.
+￼￼
+Technology Used: 
+HTML/CSS/JavaScript/jQuery
 
 API Choice: https://market.mashape.com/spoonacular/recipe-food-nutrition
 
@@ -34,6 +41,6 @@ What the user sees | What a user does | What the system does
 -----------------  | ---------------- | -------------------- 
 Pop up message with suggested ingredients in list | selects one of the ingredients in the list | adds the ingredient to the list and take back to homepage with ingredients list
 
- Link to related wireframes:
-`https://drive.google.com/file/d/0BwXWqeyRyle7al9lSXJ0NjFfVlE/view?usp=sharing`
+ Link to related wireframes and screenshots:
+`https://drive.google.com/file/d/0BwXWqeyRyle7em5TX3lMVVRZdkE/view?usp=sharing`
 
