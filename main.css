@@ -125,8 +125,9 @@ button:hover {
   position: fixed;
   width: 50%;
   margin: auto;
-  height: 500px;
+  bottom: 150px;
   top: 150px;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
   border: solid black;
   border-radius: 5px;
@@ -139,7 +140,8 @@ button:hover {
 
 .js-recipe-list {
   top: 150px;
-  height: auto;
+  bottom: 150px;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
   border: solid black;
   border-radius: 5px;
