@@ -18,54 +18,51 @@ $('.js-search-form').on('submit', function(event) {
 
 function getIngredientData (ingredient, callback) {
 	const settings = {
-    	url: ingredient_search_URL,
-    	headers: {
-        	'X-Mashape-Key': recipe_search_KEY,
-        	'Content-Type':'application/x-www-form-urlencode',
-        	'Accept':'application/json'
-    	},
-    	method: 'GET',
-    	dataType: 'json',
-    	data: {
-			intolerances: null,
+    url: ingredient_search_URL,
+    headers: {
+      'X-Mashape-Key': recipe_search_KEY,
+      'Content-Type':'application/x-www-form-urlencode',
+      'Accept':'application/json'
+    },
+    method: 'GET',
+    dataType: 'json',
+    data: {
+		  intolerances: null,
 			metaInformation: false,
-			number: 2,
+			number: 10,
 			query: `${ingredient}`
 		},
-    	success: callback
-    };
-
+    success: callback
+  };
 	$.ajax(settings).fail(showError()); 
-	// displayIngredientList([{name: 'flour'}, {name:'flour rice'}]);
 }	
 
 function displayIngredientList(data) {
 	let ingredientSuggestionString = '';
 	let ingredientSuggestionArray = [];
 	data.map(function(item, index) {
-    	ingredientSuggestionString += "<label class='js-suggested-ingredient'><input id='"+index+"'type='radio' name='ingredient-suggestion' required value="+ item.name + "><span>  "+ item.name + "</span></label>";
-    	ingredientSuggestionArray.push(item.name);
-  	});
-  	$('.js-suggested-ingredients').html(ingredientSuggestionString);
-  	userSubmitsIngredientSuggestion(ingredientSuggestionArray);
-	return;
+    ingredientSuggestionString += "<label class='js-suggested-ingredient'><input id='"+index+"'type='radio' name='ingredient-suggestion' required value="+ item.name + "><span>  "+ item.name + "</span></label>";
+    ingredientSuggestionArray.push(item.name);
+  });
+  $('.js-suggested-ingredients').html(ingredientSuggestionString);
+  userSubmitsIngredientSuggestion(ingredientSuggestionArray);
 }
 
 function userSubmitsIngredientSuggestion(ingredientSuggestionArray) {
 	$('.js-suggestion-list input').on('change', function() {
-		event.preventDefault();
-    	let answerIndex = $(".js-suggestion-list input:radio[name='ingredient-suggestion']").index($(".js-suggestion-list input:radio[name='ingredient-suggestion']").filter(':checked'));
-    	processIngredientList(ingredientSuggestionArray[answerIndex]);
-    	$('.js-suggested-ingredient').remove();
-    	$('.js-suggestion-list').prop('hidden', true);
-  	});
+	 event.preventDefault();
+    let answerIndex = $(".js-suggestion-list input:radio[name='ingredient-suggestion']").index($(".js-suggestion-list input:radio[name='ingredient-suggestion']").filter(':checked'));
+    processIngredientList(ingredientSuggestionArray[answerIndex]);
+    $('.js-suggested-ingredient').remove();
+    $('.js-suggestion-list').prop('hidden', true);
+  });
 }
 
 
 function processIngredientList(ingredient) {
 	if (ingredientOptions === '') {
 		ingredientOptions += `${ingredient}`;
-	  	$('.js-pantry-list').prop('hidden', false);
+	  $('.js-pantry-list').prop('hidden', false);
 	}
 	else {
 		ingredientOptions += ',' + `${ingredient}`;
@@ -73,8 +70,8 @@ function processIngredientList(ingredient) {
 	ingredientArray.push(ingredient);
 	let ingredientListString = '';
 	ingredientArray.map(function(item){
-    	ingredientListString += '<p>' + item + '</p>';
-  	});
+    ingredientListString += '<p>' + item + '</p>';
+  });
 	$('.js-pantry-items').html(ingredientListString);
 }
 
@@ -85,18 +82,18 @@ $('.js-pantry-list').on('submit', function(event) {
 
 function getRecipeData(callback) {
 	const settings = {
-    	url: recipe_search_URL,
-    	headers: {
-        	'X-Mashape-Key': recipe_search_KEY,
-        	'Accept':'application/json'
-      	},
-    	method: 'GET',
-    	dataType: 'json',
-    	data: {
+    url: recipe_search_URL,
+    headers: {
+      'X-Mashape-Key': recipe_search_KEY,
+      'Accept':'application/json'
+    },
+    method: 'GET',
+    dataType: 'json',
+    data: {
 			fillIngredients: false,
 			ingredients: ingredientOptions,
 			limitLicense: false,
-			number: 10,
+			number: 15,
 			ranking: 2
 		},
     success: callback
@@ -109,59 +106,59 @@ function displayRecipeList(data) {
 	console.log(data);
   data.map(function(item, index){ 
 	  	getRecipeSourceURL(item.id, item.title, item.image, renderRecipeURL);
-  	});
-  	$('.js-recipe-list').prop('hidden', false);
-  	$('.js-pantry-list').prop('hidden', true);
-  	$('.js-search-form').prop('hidden', true);
+  });
+  $('.js-recipe-list').prop('hidden', false);
+  $('.js-pantry-list').prop('hidden', true);
+  $('.js-search-form').prop('hidden', true);
 }
 
 function getRecipeSourceURL(recipeId, recipeTitle, recipeImage, callback) {
-  	const settings = {
-    	url: ' https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + recipeId + '/information',
-    	headers: {
-        	'X-Mashape-Key': recipe_search_KEY,
-        	'Accept':'application/json'
-      	},
-    	method: 'GET',
-    	dataType: 'json',
-    	data: {
+  const settings = {
+    url: ' https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + recipeId + '/information',
+    headers: {
+      'X-Mashape-Key': recipe_search_KEY,
+      'Accept':'application/json'
+    },
+    method: 'GET',
+    dataType: 'json',
+    data: {
 			id: recipeId,
 			includeNutrition: false
 		},
-    	success: function(response) {
-      		callback(recipeId, recipeTitle, recipeImage, response);
-    	}
-  	};
-	$.ajax(settings).fail(showError());
+    success: function(response) {
+      callback(recipeId, recipeTitle, recipeImage, response);
+    }
+  };
+  $.ajax(settings).fail(showError());
 }
 
 function renderRecipeURL(recipeId, recipeTitle, recipeImage, resp) {
 	console.log(recipeTitle);
-  	let recipeURL = resp[Object.keys(resp)[14]];
-  	console.log(recipeURL); 
-  	let recipeString =`<div class="js-recipe"><h2>${recipeTitle}</h2><a href="${recipeURL}"><img src="${recipeImage}" alt=${recipeTitle}></a></div>`;
-   	$('.js-recipes').append(recipeString);
-   	
+  let recipeURL = resp[Object.keys(resp)[14]];
+  if(typeof recipeURL !== 'number') {
+    let recipeString =`<div class="js-recipe"><h3>${recipeTitle}<a href="${recipeURL}"></h3><a href="${recipeURL}"><img src="${recipeImage}" alt=${recipeTitle}></a></div>`;
+    $('.js-recipes').append(recipeString);
+  }  	
 }
 
 
 $('js-recipe-list').on('submit', function(event) {
 	event.preventDefault();
 	ingredientOptions = '';
-    ingredientArray = [];
-    recipeListString = '';
+  ingredientArray = [];
+  recipeListString = '';
 	$('.js-recipe-list').prop('hidden', true);
 	$('.js-pantry-list').prop('hidden', true);
 
 });
 
 function showError(err) {
-  	if(err === 'ingredient'){
-    	$('no-ingredient').prop('hidden', true);
-  	}
-  	if (err==='recipe') {
-    	$('no-recipe').prop('hidden', true);
-  	}
+  if(err === 'ingredient'){
+    $('no-ingredient').prop('hidden', true);
+  }
+  if (err==='recipe') {
+    $('no-recipe').prop('hidden', true);
+  }
 	return;
 }
 
