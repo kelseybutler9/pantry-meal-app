@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en-US'>
   <head>
     <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Pantry Meal</title>
-        <link href="main.css" rel="stylesheet" type="text/css" />
-         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
-           <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        <header role="banner">
-          <h1>From Your Pantry, to Your Plate</h1>
-          <h2 class="description">The app that takes your pantry items and returns recipes with your ingredients.</h2>
-        </header>
+    <meta name="viewport" content="width=device-width">
+    <title>Pantry Meal</title>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   </head>
   <body>
+    <header role="banner">
+      <h1>From Your Pantry to Your Plate</h1>
+      <h2 class="description">The app that takes your pantry items and returns recipes with your ingredients.</h2>
+      <div class="space"></div>
+    </header>
     <div class="background-image"></div>
     <main role="main">
       <form action="#" class="js-search-form">
         <div class="input-field">
           <label>Enter a pantry item to see related ingredient options.
+            <div class="space"></div>
             <input type="text" name="ingredient-search" class="js-query" placeholder="search ingredients" required>
           </label>
-          <div></div>
+          <div class="space"></div>
           <button type="submit">Recieve Suggestions</button>
         </div>
-        
       </form>
 
       <form action="#" class= "js-pantry-list" aria-live="assertive" hidden>
@@ -32,21 +33,21 @@
         </div>
         <button type="submit">Submit Recipe</button>
       </form>
-      
-      <form class= "js-suggestion-list" aria-live="assertive" hidden> 
+
+      <form class= "js-suggestion-list" aria-live="assertive" hidden>
         <h3>Please select one of the following ingredients.</h3>
         <div class="js-suggested-ingredients">
         </div>
       </form>
-        
+
       <form class= "js-error" aria-live="assertive" hidden>
         <div class="js-error-message">
           <p class="no-ingredient" hidden>Ingredient Not Found, Please Resubmit</p>
-          <p class="no-recipe" hidden>No Receipes Found, Please Resubmit Ingredients</p> 
+          <p class="no-recipe" hidden>No Receipes Found, Please Resubmit Ingredients</p>
           <button type="submit">X</button>
         </div>
       </form>
-        
+
       <form action="#" class= "js-recipe-list" aria-live="assertive" hidden>
         <h2>Recipe List</h2>
         <div class="js-recipes">

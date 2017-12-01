@@ -51,6 +51,10 @@ label {
   border: solid white 1px;
 }
 
+.space {
+  height: 10px;
+}
+
 h2 {
     font-size: 2em;
     margin-bottom: 5px;
@@ -131,7 +135,7 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.9);
   border: solid black;
   border-radius: 5px;
-  border-width:5px;  
+  border-width:5px;
   border-style:inset;
   color: white;
   left: 0;
@@ -145,7 +149,7 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.9);
   border: solid black;
   border-radius: 5px;
-  border-width:5px;  
+  border-width:5px;
   border-style:inset;
   color: white;
   left: 0;

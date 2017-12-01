@@ -37,3 +37,13 @@ Pop up message with suggested ingredients in list | selects one of the ingredien
  Link to related wireframes:
 `https://drive.google.com/file/d/0BwXWqeyRyle7al9lSXJ0NjFfVlE/view?usp=sharing`
 
+User Feedback:
+
+After user testing, I received the following feedback:
+1) Add in an image of each recipe with the title.
+2) Not all recipes contained an URL to a valid source url. 
+3) Provide more instructions when entering ingredients for the application. It was unclear of what the application does.
+4)Provide more ingredient suggestions when entering an ingredient.
+5) When a recipe is populated, make sure both the title and image provide links to the recipe.
+
+After this feedback, I was able to re-work some of the application. I added in more description fields to the header and when a user enters an ingredient. The text now explains to the user the purpose and what submitting an ingredient will result in. I made sure each of the buttons were labeled to explain their function. I increased the number of results for ingredient options and recipes. Additionally, I added a link to both the title and the image that was brought in. 

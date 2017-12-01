@@ -1,7 +1,7 @@
 const recipe_search_URL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients'
 const ingredient_search_URL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete';
-const recipe_search_KEY = '8P5jfI6bzJmshGoHP4ULJXria9Lmp17aDJYjsnaBmFSetYNBoE'; 
-const recipe_search_APIID = '340adb33'; 
+const recipe_search_KEY = '8P5jfI6bzJmshGoHP4ULJXria9Lmp17aDJYjsnaBmFSetYNBoE';
+const recipe_search_APIID = '340adb33';
 let ingredientOptions = '';
 let ingredientArray = [];
 let recipeListString = '';
@@ -34,8 +34,8 @@ function getIngredientData (ingredient, callback) {
 		},
     success: callback
   };
-	$.ajax(settings).fail(showError()); 
-}	
+	$.ajax(settings).fail(showError());
+}
 
 function displayIngredientList(data) {
 	let ingredientSuggestionString = '';
@@ -100,11 +100,11 @@ function getRecipeData(callback) {
 };
 
 	$.ajax(settings).fail(showError());
-}	
+}
 
 function displayRecipeList(data) {
 	console.log(data);
-  data.map(function(item, index){ 
+  data.map(function(item, index){
 	  	getRecipeSourceURL(item.id, item.title, item.image, renderRecipeURL);
   });
   $('.js-recipe-list').prop('hidden', false);
@@ -138,9 +138,8 @@ function renderRecipeURL(recipeId, recipeTitle, recipeImage, resp) {
   if(typeof recipeURL !== 'number') {
     let recipeString =`<div class="js-recipe"><h3>${recipeTitle}<a href="${recipeURL}"></h3><a href="${recipeURL}"><img src="${recipeImage}" alt=${recipeTitle}></a></div>`;
     $('.js-recipes').append(recipeString);
-  }  	
+  }
 }
-
 
 $('js-recipe-list').on('submit', function(event) {
 	event.preventDefault();
